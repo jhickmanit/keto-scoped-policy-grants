@@ -1,0 +1,887 @@
+[
+  {
+    "namespace": "Client",
+    "object": "acme-jones",
+    "relation": "grants",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones"
+    }
+  },
+  {
+    "namespace": "Client",
+    "object": "acme-jones",
+    "relation": "grants",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-carol-prep-jones"
+    }
+  },
+  {
+    "namespace": "Client",
+    "object": "acme-jones",
+    "relation": "parents",
+    "subject_set": {
+      "namespace": "Office",
+      "object": "acme-nyc"
+    }
+  },
+  {
+    "namespace": "Client",
+    "object": "acme-smith",
+    "relation": "parents",
+    "subject_set": {
+      "namespace": "ClientGroup",
+      "object": "acme-cag-outsource-dan"
+    }
+  },
+  {
+    "namespace": "Client",
+    "object": "acme-smith",
+    "relation": "parents",
+    "subject_set": {
+      "namespace": "Office",
+      "object": "acme-miami"
+    }
+  },
+  {
+    "namespace": "Client",
+    "object": "globex-lee",
+    "relation": "parents",
+    "subject_set": {
+      "namespace": "Office",
+      "object": "globex-main"
+    }
+  },
+  {
+    "namespace": "ClientGroup",
+    "object": "acme-cag-outsource-dan",
+    "relation": "grants",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-dan-outsource"
+    }
+  },
+  {
+    "namespace": "ClientGroup",
+    "object": "acme-cag-outsource-dan",
+    "relation": "parents",
+    "subject_set": {
+      "namespace": "Firm",
+      "object": "acme"
+    }
+  },
+  {
+    "namespace": "Firm",
+    "object": "acme",
+    "relation": "grants",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-erin-efile"
+    }
+  },
+  {
+    "namespace": "Firm",
+    "object": "acme",
+    "relation": "grants",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "FAM_ClientManager_ClientProfile_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "FAM_ClientManager_ClientProfile_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "FAM_ClientManager_ClientProfile_View",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "Tax_Correspondence_ModifyLettersForReturn_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "Tax_ElectronicFiling_AccessELFStatussystem_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "Tax_ElectronicFiling_AccessELFStatussystem_Exportedreturns_View",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "Tax_ElectronicFiling_Releasereturnstotaxingauthority_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "Tax_TaxPreparation_AddNewClientWhenCreatingNewReturn_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "Tax_TaxPreparation_RecoverReturns_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "Tax_TaxPreparation_TaxReturns_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "Tax_TaxPreparation_TaxReturns_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "Tax_TaxPreparation_TaxReturns_List",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "Tax_TaxPreparation_TaxReturns_View",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "members",
+    "subject_set": {
+      "namespace": "User",
+      "object": "bob"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "roles",
+    "subject_set": {
+      "namespace": "Role",
+      "object": "F10"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "roles",
+    "subject_set": {
+      "namespace": "Role",
+      "object": "F2"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "roles",
+    "subject_set": {
+      "namespace": "Role",
+      "object": "F9"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-clientadmin-miami",
+    "relation": "FAM_ClientManager_ClientProfile_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-carol-clientadmin-miami",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-clientadmin-miami",
+    "relation": "FAM_ClientManager_ClientProfile_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-carol-clientadmin-miami",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-clientadmin-miami",
+    "relation": "FAM_ClientManager_ClientProfile_View",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-carol-clientadmin-miami",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-clientadmin-miami",
+    "relation": "members",
+    "subject_set": {
+      "namespace": "User",
+      "object": "carol"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-clientadmin-miami",
+    "relation": "roles",
+    "subject_set": {
+      "namespace": "Role",
+      "object": "F9"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-prep-jones",
+    "relation": "Tax_Correspondence_ModifyLettersForReturn_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-carol-prep-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-prep-jones",
+    "relation": "Tax_TaxPreparation_AddNewClientWhenCreatingNewReturn_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-carol-prep-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-prep-jones",
+    "relation": "Tax_TaxPreparation_RecoverReturns_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-carol-prep-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-prep-jones",
+    "relation": "Tax_TaxPreparation_TaxReturns_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-carol-prep-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-prep-jones",
+    "relation": "Tax_TaxPreparation_TaxReturns_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-carol-prep-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-prep-jones",
+    "relation": "Tax_TaxPreparation_TaxReturns_List",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-carol-prep-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-prep-jones",
+    "relation": "Tax_TaxPreparation_TaxReturns_View",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-carol-prep-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-prep-jones",
+    "relation": "members",
+    "subject_set": {
+      "namespace": "User",
+      "object": "carol"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-prep-jones",
+    "relation": "roles",
+    "subject_set": {
+      "namespace": "Role",
+      "object": "F2"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-dan-outsource",
+    "relation": "Tax_Correspondence_ModifyLettersForReturn_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-dan-outsource",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-dan-outsource",
+    "relation": "Tax_TaxPreparation_AddNewClientWhenCreatingNewReturn_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-dan-outsource",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-dan-outsource",
+    "relation": "Tax_TaxPreparation_RecoverReturns_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-dan-outsource",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-dan-outsource",
+    "relation": "Tax_TaxPreparation_TaxReturns_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-dan-outsource",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-dan-outsource",
+    "relation": "Tax_TaxPreparation_TaxReturns_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-dan-outsource",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-dan-outsource",
+    "relation": "Tax_TaxPreparation_TaxReturns_List",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-dan-outsource",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-dan-outsource",
+    "relation": "Tax_TaxPreparation_TaxReturns_View",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-dan-outsource",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-dan-outsource",
+    "relation": "members",
+    "subject_set": {
+      "namespace": "User",
+      "object": "dan"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-dan-outsource",
+    "relation": "roles",
+    "subject_set": {
+      "namespace": "Role",
+      "object": "F2"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-erin-efile",
+    "relation": "Tax_ElectronicFiling_AccessELFStatussystem_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-erin-efile",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-erin-efile",
+    "relation": "Tax_ElectronicFiling_AccessELFStatussystem_Exportedreturns_View",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-erin-efile",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-erin-efile",
+    "relation": "Tax_ElectronicFiling_Releasereturnstotaxingauthority_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-erin-efile",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-erin-efile",
+    "relation": "members",
+    "subject_set": {
+      "namespace": "User",
+      "object": "erin"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-erin-efile",
+    "relation": "roles",
+    "subject_set": {
+      "namespace": "Role",
+      "object": "F10"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "FAM_ClientManager_ClientProfile_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-miami-preparers",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "FAM_ClientManager_ClientProfile_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-miami-preparers",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "FAM_ClientManager_ClientProfile_View",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-miami-preparers",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "Tax_Correspondence_ModifyLettersForReturn_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-miami-preparers",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "Tax_TaxPreparation_AddNewClientWhenCreatingNewReturn_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-miami-preparers",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "Tax_TaxPreparation_RecoverReturns_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-miami-preparers",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "Tax_TaxPreparation_TaxReturns_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-miami-preparers",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "Tax_TaxPreparation_TaxReturns_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-miami-preparers",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "Tax_TaxPreparation_TaxReturns_List",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-miami-preparers",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "Tax_TaxPreparation_TaxReturns_View",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-miami-preparers",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "members",
+    "subject_set": {
+      "namespace": "Group",
+      "object": "acme-miami-preparers",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "roles",
+    "subject_set": {
+      "namespace": "Role",
+      "object": "F2"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "roles",
+    "subject_set": {
+      "namespace": "Role",
+      "object": "F9"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "FAM_ClientManager_ClientProfile_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "FAM_ClientManager_ClientProfile_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "FAM_ClientManager_ClientProfile_View",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "Tax_Correspondence_ModifyLettersForReturn_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "Tax_ElectronicFiling_AccessELFStatussystem_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "Tax_ElectronicFiling_AccessELFStatussystem_Exportedreturns_View",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "Tax_ElectronicFiling_Releasereturnstotaxingauthority_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "Tax_TaxPreparation_AddNewClientWhenCreatingNewReturn_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "Tax_TaxPreparation_RecoverReturns_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "Tax_TaxPreparation_TaxReturns_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "Tax_TaxPreparation_TaxReturns_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "Tax_TaxPreparation_TaxReturns_List",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "Tax_TaxPreparation_TaxReturns_View",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "members",
+    "subject_set": {
+      "namespace": "User",
+      "object": "owner"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "roles",
+    "subject_set": {
+      "namespace": "Role",
+      "object": "F1"
+    }
+  },
+  {
+    "namespace": "Group",
+    "object": "acme-miami-preparers",
+    "relation": "members",
+    "subject_set": {
+      "namespace": "User",
+      "object": "alice"
+    }
+  },
+  {
+    "namespace": "Office",
+    "object": "acme-miami",
+    "relation": "grants",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-carol-clientadmin-miami"
+    }
+  },
+  {
+    "namespace": "Office",
+    "object": "acme-miami",
+    "relation": "grants",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-miami-preparers"
+    }
+  },
+  {
+    "namespace": "Office",
+    "object": "acme-miami",
+    "relation": "parents",
+    "subject_set": {
+      "namespace": "Firm",
+      "object": "acme"
+    }
+  },
+  {
+    "namespace": "Office",
+    "object": "acme-nyc",
+    "relation": "parents",
+    "subject_set": {
+      "namespace": "Firm",
+      "object": "acme"
+    }
+  },
+  {
+    "namespace": "Office",
+    "object": "globex-main",
+    "relation": "parents",
+    "subject_set": {
+      "namespace": "Firm",
+      "object": "globex"
+    }
+  },
+  {
+    "namespace": "TaxReturn",
+    "object": "acme-jones-2025-1040",
+    "relation": "parents",
+    "subject_set": {
+      "namespace": "Client",
+      "object": "acme-jones"
+    }
+  },
+  {
+    "namespace": "TaxReturn",
+    "object": "acme-smith-2025-1040",
+    "relation": "parents",
+    "subject_set": {
+      "namespace": "Client",
+      "object": "acme-smith"
+    }
+  },
+  {
+    "namespace": "TaxReturn",
+    "object": "globex-lee-2025-1040",
+    "relation": "parents",
+    "subject_set": {
+      "namespace": "Client",
+      "object": "globex-lee"
+    }
+  }
+]

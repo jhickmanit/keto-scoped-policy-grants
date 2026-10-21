@@ -1,0 +1,46 @@
+# setup-b-direct
+keto v26.4.5, config setup-b-direct/keto.yml:
+    strict_mode: true
+    max_read_depth: 10
+    max_read_width: 100
+
+## Check matrix
+ok   owner  true  Tax.TaxPreparation.TaxReturns.View                           TaxReturn:acme-jones-2025-1040 
+ok   owner  true  Tax.ElectronicFiling.Releasereturnstotaxingauthority.Edit    TaxReturn:acme-smith-2025-1040 
+ok   owner  true  FAM.ClientManager.ClientProfile.Edit                         Client:acme-jones 
+ok   owner  true  Tax.ElectronicFiling.AccessELFStatussystem.Edit              Firm:acme 
+ok   owner  false Tax.TaxPreparation.TaxReturns.View                           TaxReturn:globex-lee-2025-1040 
+ok   alice  true  Tax.TaxPreparation.TaxReturns.View                           TaxReturn:acme-smith-2025-1040 
+ok   alice  true  Tax.TaxPreparation.TaxReturns.Edit                           TaxReturn:acme-smith-2025-1040 
+ok   alice  false Tax.TaxPreparation.TaxReturns.View                           TaxReturn:acme-jones-2025-1040 
+ok   alice  false Tax.ElectronicFiling.Releasereturnstotaxingauthority.Edit    TaxReturn:acme-smith-2025-1040 
+ok   alice  true  FAM.ClientManager.ClientProfile.View                         Client:acme-smith 
+ok   alice  true  Tax.TaxPreparation.TaxReturns.Add                            Client:acme-smith 
+ok   alice  true  Tax.TaxPreparation.TaxReturns.List                           Client:acme-smith 
+ok   alice  false Tax.TaxPreparation.TaxReturns.List                           Client:acme-jones 
+ok   alice  true  Tax.TaxPreparation.AddNewClientWhenCreatingNewReturn.Add     Office:acme-miami 
+ok   alice  false FAM.ClientManager.ClientProfile.Add                          Office:acme-nyc 
+ok   bob    true  Tax.ElectronicFiling.Releasereturnstotaxingauthority.Edit    TaxReturn:acme-jones-2025-1040 
+ok   bob    true  Tax.TaxPreparation.TaxReturns.View                           TaxReturn:acme-jones-2025-1040 
+ok   bob    false Tax.TaxPreparation.TaxReturns.View                           TaxReturn:acme-smith-2025-1040 
+ok   bob    false Tax.ElectronicFiling.AccessELFStatussystem.Edit              Firm:acme 
+ok   erin   true  Tax.ElectronicFiling.Releasereturnstotaxingauthority.Edit    TaxReturn:acme-smith-2025-1040 
+ok   erin   true  Tax.ElectronicFiling.Releasereturnstotaxingauthority.Edit    TaxReturn:acme-jones-2025-1040 
+ok   erin   true  Tax.ElectronicFiling.AccessELFStatussystem.Edit              Firm:acme 
+ok   erin   false Tax.TaxPreparation.TaxReturns.Edit                           TaxReturn:acme-smith-2025-1040 
+ok   dan    true  Tax.TaxPreparation.TaxReturns.Edit                           TaxReturn:acme-smith-2025-1040 
+ok   dan    false Tax.TaxPreparation.TaxReturns.View                           TaxReturn:acme-jones-2025-1040 
+ok   dan    false FAM.ClientManager.ClientProfile.View                         Client:acme-smith 
+ok   dan    false Tax.TaxPreparation.AddNewClientWhenCreatingNewReturn.Add     Office:acme-miami 
+ok   carol  true  Tax.TaxPreparation.TaxReturns.View                           TaxReturn:acme-jones-2025-1040 
+ok   carol  false Tax.TaxPreparation.TaxReturns.View                           TaxReturn:acme-smith-2025-1040 
+ok   carol  true  FAM.ClientManager.ClientProfile.View                         Client:acme-smith 
+ok   carol  false FAM.ClientManager.ClientProfile.View                         Client:acme-jones 
+31/31 checks passed
+
+## Smallest max_read_depth that passes every check
+5 (Ory Network allows 10)
+
+## With 500 bulk F2 assignments (failed checks per run, 3 runs)
+reuse: 0 0 0
+fan-in: 4 4 4

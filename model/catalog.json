@@ -1,0 +1,65 @@
+{
+  "_comment": "Resource hierarchy, permission catalog and policy (role) templates. Permission ids are the legacy CCH Axcess ids. 'on' is the lowest scope the permission is checked against; it is also checkable on every ancestor scope (a grant on Office covers every TaxReturn below it).",
+  "scopes": [
+    { "name": "Firm", "parents": [] },
+    { "name": "Office", "parents": ["Firm"] },
+    { "name": "ClientGroup", "parents": ["Firm", "Office"] },
+    { "name": "Client", "parents": ["Office", "ClientGroup"] },
+    { "name": "TaxReturn", "parents": ["Client"] }
+  ],
+  "permissions": [
+    { "id": "Tax.TaxPreparation.TaxReturns.View", "on": "TaxReturn" },
+    { "id": "Tax.TaxPreparation.TaxReturns.Edit", "on": "TaxReturn" },
+    { "id": "Tax.Correspondence.ModifyLettersForReturn.Edit", "on": "TaxReturn" },
+    { "id": "Tax.TaxPreparation.RecoverReturns.Edit", "on": "TaxReturn" },
+    { "id": "Tax.TaxPreparation.TaxReturns.Add", "on": "Client" },
+    { "id": "Tax.TaxPreparation.TaxReturns.List", "on": "Client", "proposed": true },
+    { "id": "Tax.TaxPreparation.AddNewClientWhenCreatingNewReturn.Add", "on": "Office" },
+
+    { "id": "FAM.ClientManager.ClientProfile.View", "on": "Client" },
+    { "id": "FAM.ClientManager.ClientProfile.Edit", "on": "Client" },
+    { "id": "FAM.ClientManager.ClientProfile.Add", "on": "Office" },
+
+    { "id": "Tax.ElectronicFiling.AccessELFStatussystem.Edit", "on": "Firm" },
+    { "id": "Tax.ElectronicFiling.AccessELFStatussystem.Exportedreturns.View", "on": "TaxReturn" },
+    { "id": "Tax.ElectronicFiling.Releasereturnstotaxingauthority.Edit", "on": "TaxReturn" }
+  ],
+  "roles": [
+    {
+      "id": "F2",
+      "name": "Tax Preparers",
+      "permissions": [
+        "Tax.TaxPreparation.TaxReturns.View",
+        "Tax.TaxPreparation.TaxReturns.Edit",
+        "Tax.TaxPreparation.TaxReturns.Add",
+        "Tax.TaxPreparation.TaxReturns.List",
+        "Tax.Correspondence.ModifyLettersForReturn.Edit",
+        "Tax.TaxPreparation.RecoverReturns.Edit",
+        "Tax.TaxPreparation.AddNewClientWhenCreatingNewReturn.Add"
+      ]
+    },
+    {
+      "id": "F9",
+      "name": "Client Administration",
+      "permissions": [
+        "FAM.ClientManager.ClientProfile.View",
+        "FAM.ClientManager.ClientProfile.Edit",
+        "FAM.ClientManager.ClientProfile.Add"
+      ]
+    },
+    {
+      "id": "F10",
+      "name": "E-File",
+      "permissions": [
+        "Tax.ElectronicFiling.AccessELFStatussystem.Edit",
+        "Tax.ElectronicFiling.AccessELFStatussystem.Exportedreturns.View",
+        "Tax.ElectronicFiling.Releasereturnstotaxingauthority.Edit"
+      ]
+    },
+    {
+      "id": "F1",
+      "name": "Full Rights",
+      "includes": ["F2", "F9", "F10"]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "_comment": "Example tenant data. 'assignments' are legacy policy assignments (who, which policies, at what scope). The generator turns them into Model A grants or Model B direct tuples. 'checks' are asserted against both models.",
+  "objects": [
+    { "ref": "Firm:acme" },
+    { "ref": "Office:acme-miami", "parents": ["Firm:acme"] },
+    { "ref": "Office:acme-nyc", "parents": ["Firm:acme"] },
+    { "ref": "ClientGroup:acme-cag-outsource-dan", "parents": ["Firm:acme"] },
+    { "ref": "Client:acme-smith", "parents": ["Office:acme-miami", "ClientGroup:acme-cag-outsource-dan"] },
+    { "ref": "Client:acme-jones", "parents": ["Office:acme-nyc"] },
+    { "ref": "TaxReturn:acme-smith-2025-1040", "parents": ["Client:acme-smith"] },
+    { "ref": "TaxReturn:acme-jones-2025-1040", "parents": ["Client:acme-jones"] },
+
+    { "ref": "Firm:globex" },
+    { "ref": "Office:globex-main", "parents": ["Firm:globex"] },
+    { "ref": "Client:globex-lee", "parents": ["Office:globex-main"] },
+    { "ref": "TaxReturn:globex-lee-2025-1040", "parents": ["Client:globex-lee"] }
+  ],
+  "groups": {
+    "acme-miami-preparers": ["alice"]
+  },
+  "assignments": [
+    { "id": "acme-owner", "scenario": "P Full Administrator", "subjects": ["User:owner"], "roles": ["F1"], "scope": "Firm:acme" },
+    { "id": "acme-miami-preparers", "scenario": "A Basic Preparer (via user group)", "subjects": ["Group:acme-miami-preparers"], "roles": ["F2", "F9"], "scope": "Office:acme-miami" },
+    { "id": "acme-bob-jones", "scenario": "C Preparer + Standing Filer, one assigned client", "subjects": ["User:bob"], "roles": ["F2", "F9", "F10"], "scope": "Client:acme-jones" },
+    { "id": "acme-erin-efile", "scenario": "G E-File Specialist only", "subjects": ["User:erin"], "roles": ["F10"], "scope": "Firm:acme" },
+    { "id": "acme-dan-outsource", "scenario": "L1 Outsource preparer, CAG DirectList", "subjects": ["User:dan"], "roles": ["F2"], "scope": "ClientGroup:acme-cag-outsource-dan" },
+    { "id": "acme-carol-prep-jones", "scenario": "Different policies on different scopes", "subjects": ["User:carol"], "roles": ["F2"], "scope": "Client:acme-jones" },
+    { "id": "acme-carol-clientadmin-miami", "scenario": "Different policies on different scopes", "subjects": ["User:carol"], "roles": ["F9"], "scope": "Office:acme-miami" }
+  ],
+  "checks": [
+    { "subject": "owner", "permission": "Tax.TaxPreparation.TaxReturns.View", "object": "TaxReturn:acme-jones-2025-1040", "expect": true },
+    { "subject": "owner", "permission": "Tax.ElectronicFiling.Releasereturnstotaxingauthority.Edit", "object": "TaxReturn:acme-smith-2025-1040", "expect": true },
+    { "subject": "owner", "permission": "FAM.ClientManager.ClientProfile.Edit", "object": "Client:acme-jones", "expect": true },
+    { "subject": "owner", "permission": "Tax.ElectronicFiling.AccessELFStatussystem.Edit", "object": "Firm:acme", "expect": true },
+    { "subject": "owner", "permission": "Tax.TaxPreparation.TaxReturns.View", "object": "TaxReturn:globex-lee-2025-1040", "expect": false, "why": "tenant isolation" },
+
+    { "subject": "alice", "permission": "Tax.TaxPreparation.TaxReturns.View", "object": "TaxReturn:acme-smith-2025-1040", "expect": true },
+    { "subject": "alice", "permission": "Tax.TaxPreparation.TaxReturns.Edit", "object": "TaxReturn:acme-smith-2025-1040", "expect": true },
+    { "subject": "alice", "permission": "Tax.TaxPreparation.TaxReturns.View", "object": "TaxReturn:acme-jones-2025-1040", "expect": false, "why": "other office" },
+    { "subject": "alice", "permission": "Tax.ElectronicFiling.Releasereturnstotaxingauthority.Edit", "object": "TaxReturn:acme-smith-2025-1040", "expect": false, "why": "no F10" },
+    { "subject": "alice", "permission": "FAM.ClientManager.ClientProfile.View", "object": "Client:acme-smith", "expect": true },
+    { "subject": "alice", "permission": "Tax.TaxPreparation.TaxReturns.Add", "object": "Client:acme-smith", "expect": true },
+    { "subject": "alice", "permission": "Tax.TaxPreparation.TaxReturns.List", "object": "Client:acme-smith", "expect": true },
+    { "subject": "alice", "permission": "Tax.TaxPreparation.TaxReturns.List", "object": "Client:acme-jones", "expect": false },
+    { "subject": "alice", "permission": "Tax.TaxPreparation.AddNewClientWhenCreatingNewReturn.Add", "object": "Office:acme-miami", "expect": true },
+    { "subject": "alice", "permission": "FAM.ClientManager.ClientProfile.Add", "object": "Office:acme-nyc", "expect": false },
+
+    { "subject": "bob", "permission": "Tax.ElectronicFiling.Releasereturnstotaxingauthority.Edit", "object": "TaxReturn:acme-jones-2025-1040", "expect": true },
+    { "subject": "bob", "permission": "Tax.TaxPreparation.TaxReturns.View", "object": "TaxReturn:acme-jones-2025-1040", "expect": true },
+    { "subject": "bob", "permission": "Tax.TaxPreparation.TaxReturns.View", "object": "TaxReturn:acme-smith-2025-1040", "expect": false, "why": "not his client" },
+    { "subject": "bob", "permission": "Tax.ElectronicFiling.AccessELFStatussystem.Edit", "object": "Firm:acme", "expect": false, "why": "firm-level feature permission cannot come from a client-scoped grant" },
+
+    { "subject": "erin", "permission": "Tax.ElectronicFiling.Releasereturnstotaxingauthority.Edit", "object": "TaxReturn:acme-smith-2025-1040", "expect": true },
+    { "subject": "erin", "permission": "Tax.ElectronicFiling.Releasereturnstotaxingauthority.Edit", "object": "TaxReturn:acme-jones-2025-1040", "expect": true },
+    { "subject": "erin", "permission": "Tax.ElectronicFiling.AccessELFStatussystem.Edit", "object": "Firm:acme", "expect": true },
+    { "subject": "erin", "permission": "Tax.TaxPreparation.TaxReturns.Edit", "object": "TaxReturn:acme-smith-2025-1040", "expect": false, "why": "filing-only specialist" },
+
+    { "subject": "dan", "permission": "Tax.TaxPreparation.TaxReturns.Edit", "object": "TaxReturn:acme-smith-2025-1040", "expect": true },
+    { "subject": "dan", "permission": "Tax.TaxPreparation.TaxReturns.View", "object": "TaxReturn:acme-jones-2025-1040", "expect": false, "why": "not in his CAG" },
+    { "subject": "dan", "permission": "FAM.ClientManager.ClientProfile.View", "object": "Client:acme-smith", "expect": false, "why": "no F9" },
+    { "subject": "dan", "permission": "Tax.TaxPreparation.AddNewClientWhenCreatingNewReturn.Add", "object": "Office:acme-miami", "expect": false, "why": "CL=0: cannot create clients" },
+
+    { "subject": "carol", "permission": "Tax.TaxPreparation.TaxReturns.View", "object": "TaxReturn:acme-jones-2025-1040", "expect": true },
+    { "subject": "carol", "permission": "Tax.TaxPreparation.TaxReturns.View", "object": "TaxReturn:acme-smith-2025-1040", "expect": false, "why": "F2 only on jones" },
+    { "subject": "carol", "permission": "FAM.ClientManager.ClientProfile.View", "object": "Client:acme-smith", "expect": true },
+    { "subject": "carol", "permission": "FAM.ClientManager.ClientProfile.View", "object": "Client:acme-jones", "expect": false, "why": "F9 only on miami" }
+  ]
+}
