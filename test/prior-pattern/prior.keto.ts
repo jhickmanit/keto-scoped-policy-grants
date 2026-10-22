@@ -1,7 +1,7 @@
-// Illustrative shared-role hazard, inspired by the July schema. This changes
-// assignment targets to bare User_Group objects and ADDS forwarding permits on
-// User_Group. It is not a faithful executable reduction of the July file and
-// does not establish exposure in production.
+// Illustrative shared-role hazard: two resource-scoped groups share one
+// permission-bearing role. User_Group forwards permission checks to that role,
+// whose membership combines both groups. This constructed example does not
+// establish exposure in a deployed system.
 import { Namespace, SubjectSet, Context } from "@ory/keto-namespace-types"
 
 class User implements Namespace {}

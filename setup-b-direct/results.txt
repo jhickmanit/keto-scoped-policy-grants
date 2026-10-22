@@ -39,7 +39,7 @@ ok   carol  false FAM.ClientManager.ClientProfile.View                         C
 31/31 checks passed
 
 ## Smallest max_read_depth that passes every check
-5 (Ory Network allows 10)
+5 (configured maximum 10)
 
 ## With 500 bulk F2 assignments (failed checks per run, 3 runs)
 reuse: 0 0 0

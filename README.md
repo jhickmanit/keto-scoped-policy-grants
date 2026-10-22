@@ -61,6 +61,8 @@ Both setups expose the same `Permit_<permission>` names. The generator replaces 
 
 ## Run locally
 
+GitHub Actions runs `make check` and verifies that regenerating the schemas, tuples, and configs leaves the checked-in files unchanged. CI does not run the Keto integration matrix or load tests.
+
 You need Go 1.23 or later, Make, Bash, `jq`, `curl`, and a Keto binary. The checked-in results use **Keto v26.4.5**, strict mode enabled, maximum read depth 10, and maximum read width 100. Other versions may behave differently.
 
 Run these commands from the repository root. Ports **4466 and 4467 must be free**; the scripts start and stop fresh in-memory Keto instances and run the setups sequentially.
@@ -99,6 +101,20 @@ Compare results only for the same workload, engine version, and configuration. W
 | 2 | The run was incomplete, such as a startup, tuple-load, or verifier failure. |
 
 The default A/B comparison is expected to exit 1 on the reference version because of Setup B's load failures. Make reports recipe failures using its own exit status.
+
+### Obtain a Keto binary
+
+Download and extract an archive for your operating system and architecture from the [public Keto releases](https://github.com/ory/keto/releases), then set `KETO` to the extracted executable's absolute path. For example, v26.2.0 has `keto_26.2.0-macOS_arm64.tar.gz` for Apple Silicon and `keto_26.2.0-linux_64bit.tar.gz` for Linux x86-64. Verify the archive against that release's `checksums.txt` before using it.
+
+The historical v26.4.5 reference build has no matching asset on the public releases page as of October 21, 2026. A public build such as [v26.2.0](https://github.com/ory/keto/releases/tag/v26.2.0) is a candidate for testing, but has not been validated against this example. It is not a substitute for reproducing the recorded baseline. Run the harness and retain its version, configuration, and logs when comparing another build; unsupported OPL, configuration, or API behavior must be resolved before interpreting its results.
+
+```sh
+export KETO=/absolute/path/to/extracted/keto
+"$KETO" version
+make test
+```
+
+A locally compiled binary may report `master`. Record its source tag and commit alongside the test output in that case.
 
 ### Inspect a setup manually
 
@@ -173,5 +189,6 @@ Before using this pattern in an application, the service writing tuples must enf
 | `test/run.sh`, `test/lib.sh` | Keto lifecycle, baseline matrix, depth exploration, and load comparison. |
 | `test/runner-errors.sh` | Fault-injection checks for incomplete verification runs. |
 | `test/prior-pattern/` | Separate illustration of access crossing scopes through a shared permission-bearing role. |
+| `.github/workflows/check.yml` | Go and shell checks plus generated-file consistency on pushes and pull requests. |
 
 `make prior` runs the shared-role illustration. It expects cross-client checks to deny and exits 1 when the illustrated hazard occurs. This is a constructed example, not evidence of a vulnerability in a deployed system.
