@@ -1,0 +1,68 @@
+{
+  "_comment": "Example tenant data. 'assignments' are legacy policy assignments (who, which policies, at what scope). The generator turns them into Model A grants or Model B direct tuples. 'checks' are asserted against both models.",
+  "objects": [
+    { "ref": "Org:acme" },
+    { "ref": "Branch:acme-miami", "parents": ["Org:acme"] },
+    { "ref": "Branch:acme-nyc", "parents": ["Org:acme"] },
+    { "ref": "CustomerGroup:acme-cag-outsource-dan", "parents": ["Org:acme"] },
+    { "ref": "Customer:acme-smith", "parents": ["Branch:acme-miami", "CustomerGroup:acme-cag-outsource-dan"] },
+    { "ref": "Customer:acme-jones", "parents": ["Branch:acme-nyc"] },
+    { "ref": "Document:acme-smith-2025-doc", "parents": ["Customer:acme-smith"] },
+    { "ref": "Document:acme-jones-2025-doc", "parents": ["Customer:acme-jones"] },
+
+    { "ref": "Org:globex" },
+    { "ref": "Branch:globex-main", "parents": ["Org:globex"] },
+    { "ref": "Customer:globex-lee", "parents": ["Branch:globex-main"] },
+    { "ref": "Document:globex-lee-2025-doc", "parents": ["Customer:globex-lee"] }
+  ],
+  "groups": {
+    "acme-miami-preparers": ["alice"]
+  },
+  "assignments": [
+    { "id": "acme-owner", "scenario": "P Full Administrator", "subjects": ["User:owner"], "roles": ["R1"], "scope": "Org:acme" },
+    { "id": "acme-miami-preparers", "scenario": "A Basic Preparer (via user group)", "subjects": ["Group:acme-miami-preparers"], "roles": ["R2", "R9"], "scope": "Branch:acme-miami" },
+    { "id": "acme-bob-jones", "scenario": "C Preparer + Standing Filer, one assigned customer", "subjects": ["User:bob"], "roles": ["R2", "R9", "R10"], "scope": "Customer:acme-jones" },
+    { "id": "acme-erin-submit", "scenario": "G Submission Specialist only", "subjects": ["User:erin"], "roles": ["R10"], "scope": "Org:acme" },
+    { "id": "acme-dan-outsource", "scenario": "L1 Outsource preparer, CAG DirectList", "subjects": ["User:dan"], "roles": ["R2"], "scope": "CustomerGroup:acme-cag-outsource-dan" },
+    { "id": "acme-carol-prep-jones", "scenario": "Different policies on different scopes", "subjects": ["User:carol"], "roles": ["R2"], "scope": "Customer:acme-jones" },
+    { "id": "acme-carol-customeradmin-miami", "scenario": "Different policies on different scopes", "subjects": ["User:carol"], "roles": ["R9"], "scope": "Branch:acme-miami" }
+  ],
+  "checks": [
+    { "subject": "owner", "permission": "Work.Preparation.Documents.View", "object": "Document:acme-jones-2025-doc", "expect": true },
+    { "subject": "owner", "permission": "Work.Submission.ReleaseDocumentsToRecipient.Edit", "object": "Document:acme-smith-2025-doc", "expect": true },
+    { "subject": "owner", "permission": "CRM.CustomerManager.CustomerProfile.Edit", "object": "Customer:acme-jones", "expect": true },
+    { "subject": "owner", "permission": "Work.Submission.AccessSubmissionStatus.Edit", "object": "Org:acme", "expect": true },
+    { "subject": "owner", "permission": "Work.Preparation.Documents.View", "object": "Document:globex-lee-2025-doc", "expect": false, "why": "tenant isolation" },
+
+    { "subject": "alice", "permission": "Work.Preparation.Documents.View", "object": "Document:acme-smith-2025-doc", "expect": true },
+    { "subject": "alice", "permission": "Work.Preparation.Documents.Edit", "object": "Document:acme-smith-2025-doc", "expect": true },
+    { "subject": "alice", "permission": "Work.Preparation.Documents.View", "object": "Document:acme-jones-2025-doc", "expect": false, "why": "other branch" },
+    { "subject": "alice", "permission": "Work.Submission.ReleaseDocumentsToRecipient.Edit", "object": "Document:acme-smith-2025-doc", "expect": false, "why": "no R10" },
+    { "subject": "alice", "permission": "CRM.CustomerManager.CustomerProfile.View", "object": "Customer:acme-smith", "expect": true },
+    { "subject": "alice", "permission": "Work.Preparation.Documents.Add", "object": "Customer:acme-smith", "expect": true },
+    { "subject": "alice", "permission": "Work.Preparation.Documents.List", "object": "Customer:acme-smith", "expect": true },
+    { "subject": "alice", "permission": "Work.Preparation.Documents.List", "object": "Customer:acme-jones", "expect": false },
+    { "subject": "alice", "permission": "Work.Preparation.AddNewCustomerWithDocument.Add", "object": "Branch:acme-miami", "expect": true },
+    { "subject": "alice", "permission": "CRM.CustomerManager.CustomerProfile.Add", "object": "Branch:acme-nyc", "expect": false },
+
+    { "subject": "bob", "permission": "Work.Submission.ReleaseDocumentsToRecipient.Edit", "object": "Document:acme-jones-2025-doc", "expect": true },
+    { "subject": "bob", "permission": "Work.Preparation.Documents.View", "object": "Document:acme-jones-2025-doc", "expect": true },
+    { "subject": "bob", "permission": "Work.Preparation.Documents.View", "object": "Document:acme-smith-2025-doc", "expect": false, "why": "not his customer" },
+    { "subject": "bob", "permission": "Work.Submission.AccessSubmissionStatus.Edit", "object": "Org:acme", "expect": false, "why": "org-level feature permission cannot come from a customer-scoped grant" },
+
+    { "subject": "erin", "permission": "Work.Submission.ReleaseDocumentsToRecipient.Edit", "object": "Document:acme-smith-2025-doc", "expect": true },
+    { "subject": "erin", "permission": "Work.Submission.ReleaseDocumentsToRecipient.Edit", "object": "Document:acme-jones-2025-doc", "expect": true },
+    { "subject": "erin", "permission": "Work.Submission.AccessSubmissionStatus.Edit", "object": "Org:acme", "expect": true },
+    { "subject": "erin", "permission": "Work.Preparation.Documents.Edit", "object": "Document:acme-smith-2025-doc", "expect": false, "why": "filing-only specialist" },
+
+    { "subject": "dan", "permission": "Work.Preparation.Documents.Edit", "object": "Document:acme-smith-2025-doc", "expect": true },
+    { "subject": "dan", "permission": "Work.Preparation.Documents.View", "object": "Document:acme-jones-2025-doc", "expect": false, "why": "not in his CAG" },
+    { "subject": "dan", "permission": "CRM.CustomerManager.CustomerProfile.View", "object": "Customer:acme-smith", "expect": false, "why": "no R9" },
+    { "subject": "dan", "permission": "Work.Preparation.AddNewCustomerWithDocument.Add", "object": "Branch:acme-miami", "expect": false, "why": "CL=0: cannot create customers" },
+
+    { "subject": "carol", "permission": "Work.Preparation.Documents.View", "object": "Document:acme-jones-2025-doc", "expect": true },
+    { "subject": "carol", "permission": "Work.Preparation.Documents.View", "object": "Document:acme-smith-2025-doc", "expect": false, "why": "R2 only on jones" },
+    { "subject": "carol", "permission": "CRM.CustomerManager.CustomerProfile.View", "object": "Customer:acme-smith", "expect": true },
+    { "subject": "carol", "permission": "CRM.CustomerManager.CustomerProfile.View", "object": "Customer:acme-jones", "expect": false, "why": "R9 only on miami" }
+  ]
+}

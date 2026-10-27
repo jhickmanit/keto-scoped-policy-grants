@@ -1,0 +1,11 @@
+[
+  {"namespace":"Platform_role","object":"viewer","relation":"Customer_View","subject_set":{"namespace":"Platform_role","object":"viewer"}},
+  {"namespace":"User_Group","object":"group-a","relation":"Roles","subject_set":{"namespace":"Platform_role","object":"viewer"}},
+  {"namespace":"User_Group","object":"group-b","relation":"Roles","subject_set":{"namespace":"Platform_role","object":"viewer"}},
+  {"namespace":"Platform_role","object":"viewer","relation":"User_Group","subject_set":{"namespace":"User_Group","object":"group-a","relation":"Members"}},
+  {"namespace":"Platform_role","object":"viewer","relation":"User_Group","subject_set":{"namespace":"User_Group","object":"group-b","relation":"Members"}},
+  {"namespace":"User_Group","object":"group-a","relation":"Members","subject_set":{"namespace":"User","object":"ann"}},
+  {"namespace":"User_Group","object":"group-b","relation":"Members","subject_set":{"namespace":"User","object":"ben"}},
+  {"namespace":"Customer","object":"customer-a","relation":"Group_Assignments","subject_set":{"namespace":"User_Group","object":"group-a"}},
+  {"namespace":"Customer","object":"customer-b","relation":"Group_Assignments","subject_set":{"namespace":"User_Group","object":"group-b"}}
+]

@@ -1,0 +1,46 @@
+# setup-a-grants
+keto v26.4.5, config setup-a-grants/keto.yml:
+    strict_mode: true
+    max_read_depth: 10
+    max_read_width: 100
+
+## Check matrix
+ok   owner  true  Work.Preparation.Documents.View                              Document:acme-jones-2025-doc 
+ok   owner  true  Work.Submission.ReleaseDocumentsToRecipient.Edit             Document:acme-smith-2025-doc 
+ok   owner  true  CRM.CustomerManager.CustomerProfile.Edit                     Customer:acme-jones 
+ok   owner  true  Work.Submission.AccessSubmissionStatus.Edit                  Org:acme 
+ok   owner  false Work.Preparation.Documents.View                              Document:globex-lee-2025-doc 
+ok   alice  true  Work.Preparation.Documents.View                              Document:acme-smith-2025-doc 
+ok   alice  true  Work.Preparation.Documents.Edit                              Document:acme-smith-2025-doc 
+ok   alice  false Work.Preparation.Documents.View                              Document:acme-jones-2025-doc 
+ok   alice  false Work.Submission.ReleaseDocumentsToRecipient.Edit             Document:acme-smith-2025-doc 
+ok   alice  true  CRM.CustomerManager.CustomerProfile.View                     Customer:acme-smith 
+ok   alice  true  Work.Preparation.Documents.Add                               Customer:acme-smith 
+ok   alice  true  Work.Preparation.Documents.List                              Customer:acme-smith 
+ok   alice  false Work.Preparation.Documents.List                              Customer:acme-jones 
+ok   alice  true  Work.Preparation.AddNewCustomerWithDocument.Add              Branch:acme-miami 
+ok   alice  false CRM.CustomerManager.CustomerProfile.Add                      Branch:acme-nyc 
+ok   bob    true  Work.Submission.ReleaseDocumentsToRecipient.Edit             Document:acme-jones-2025-doc 
+ok   bob    true  Work.Preparation.Documents.View                              Document:acme-jones-2025-doc 
+ok   bob    false Work.Preparation.Documents.View                              Document:acme-smith-2025-doc 
+ok   bob    false Work.Submission.AccessSubmissionStatus.Edit                  Org:acme 
+ok   erin   true  Work.Submission.ReleaseDocumentsToRecipient.Edit             Document:acme-smith-2025-doc 
+ok   erin   true  Work.Submission.ReleaseDocumentsToRecipient.Edit             Document:acme-jones-2025-doc 
+ok   erin   true  Work.Submission.AccessSubmissionStatus.Edit                  Org:acme 
+ok   erin   false Work.Preparation.Documents.Edit                              Document:acme-smith-2025-doc 
+ok   dan    true  Work.Preparation.Documents.Edit                              Document:acme-smith-2025-doc 
+ok   dan    false Work.Preparation.Documents.View                              Document:acme-jones-2025-doc 
+ok   dan    false CRM.CustomerManager.CustomerProfile.View                     Customer:acme-smith 
+ok   dan    false Work.Preparation.AddNewCustomerWithDocument.Add              Branch:acme-miami 
+ok   carol  true  Work.Preparation.Documents.View                              Document:acme-jones-2025-doc 
+ok   carol  false Work.Preparation.Documents.View                              Document:acme-smith-2025-doc 
+ok   carol  true  CRM.CustomerManager.CustomerProfile.View                     Customer:acme-smith 
+ok   carol  false CRM.CustomerManager.CustomerProfile.View                     Customer:acme-jones 
+31/31 checks passed
+
+## Smallest max_read_depth that passes every check
+6 (configured maximum 10)
+
+## With 500 bulk R2 assignments (failed checks per run, 3 runs)
+reuse: 0 0 0
+fan-in: 0 0 0

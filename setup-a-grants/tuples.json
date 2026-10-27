@@ -1,0 +1,887 @@
+[
+  {
+    "namespace": "Branch",
+    "object": "acme-miami",
+    "relation": "grants",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-carol-customeradmin-miami"
+    }
+  },
+  {
+    "namespace": "Branch",
+    "object": "acme-miami",
+    "relation": "grants",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-miami-preparers"
+    }
+  },
+  {
+    "namespace": "Branch",
+    "object": "acme-miami",
+    "relation": "parents",
+    "subject_set": {
+      "namespace": "Org",
+      "object": "acme"
+    }
+  },
+  {
+    "namespace": "Branch",
+    "object": "acme-nyc",
+    "relation": "parents",
+    "subject_set": {
+      "namespace": "Org",
+      "object": "acme"
+    }
+  },
+  {
+    "namespace": "Branch",
+    "object": "globex-main",
+    "relation": "parents",
+    "subject_set": {
+      "namespace": "Org",
+      "object": "globex"
+    }
+  },
+  {
+    "namespace": "Customer",
+    "object": "acme-jones",
+    "relation": "grants",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones"
+    }
+  },
+  {
+    "namespace": "Customer",
+    "object": "acme-jones",
+    "relation": "grants",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-carol-prep-jones"
+    }
+  },
+  {
+    "namespace": "Customer",
+    "object": "acme-jones",
+    "relation": "parents",
+    "subject_set": {
+      "namespace": "Branch",
+      "object": "acme-nyc"
+    }
+  },
+  {
+    "namespace": "Customer",
+    "object": "acme-smith",
+    "relation": "parents",
+    "subject_set": {
+      "namespace": "Branch",
+      "object": "acme-miami"
+    }
+  },
+  {
+    "namespace": "Customer",
+    "object": "acme-smith",
+    "relation": "parents",
+    "subject_set": {
+      "namespace": "CustomerGroup",
+      "object": "acme-cag-outsource-dan"
+    }
+  },
+  {
+    "namespace": "Customer",
+    "object": "globex-lee",
+    "relation": "parents",
+    "subject_set": {
+      "namespace": "Branch",
+      "object": "globex-main"
+    }
+  },
+  {
+    "namespace": "CustomerGroup",
+    "object": "acme-cag-outsource-dan",
+    "relation": "grants",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-dan-outsource"
+    }
+  },
+  {
+    "namespace": "CustomerGroup",
+    "object": "acme-cag-outsource-dan",
+    "relation": "parents",
+    "subject_set": {
+      "namespace": "Org",
+      "object": "acme"
+    }
+  },
+  {
+    "namespace": "Document",
+    "object": "acme-jones-2025-doc",
+    "relation": "parents",
+    "subject_set": {
+      "namespace": "Customer",
+      "object": "acme-jones"
+    }
+  },
+  {
+    "namespace": "Document",
+    "object": "acme-smith-2025-doc",
+    "relation": "parents",
+    "subject_set": {
+      "namespace": "Customer",
+      "object": "acme-smith"
+    }
+  },
+  {
+    "namespace": "Document",
+    "object": "globex-lee-2025-doc",
+    "relation": "parents",
+    "subject_set": {
+      "namespace": "Customer",
+      "object": "globex-lee"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "CRM_CustomerManager_CustomerProfile_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "CRM_CustomerManager_CustomerProfile_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "CRM_CustomerManager_CustomerProfile_View",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "Work_Correspondence_ModifyLettersForDocument_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "Work_Preparation_AddNewCustomerWithDocument_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "Work_Preparation_Documents_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "Work_Preparation_Documents_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "Work_Preparation_Documents_List",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "Work_Preparation_Documents_View",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "Work_Preparation_RecoverDocuments_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "Work_Submission_AccessSubmissionStatus_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "Work_Submission_AccessSubmissionStatus_ExportedDocuments_View",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "Work_Submission_ReleaseDocumentsToRecipient_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-bob-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "members",
+    "subject_set": {
+      "namespace": "User",
+      "object": "bob"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "roles",
+    "subject_set": {
+      "namespace": "Role",
+      "object": "R10"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "roles",
+    "subject_set": {
+      "namespace": "Role",
+      "object": "R2"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-bob-jones",
+    "relation": "roles",
+    "subject_set": {
+      "namespace": "Role",
+      "object": "R9"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-customeradmin-miami",
+    "relation": "CRM_CustomerManager_CustomerProfile_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-carol-customeradmin-miami",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-customeradmin-miami",
+    "relation": "CRM_CustomerManager_CustomerProfile_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-carol-customeradmin-miami",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-customeradmin-miami",
+    "relation": "CRM_CustomerManager_CustomerProfile_View",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-carol-customeradmin-miami",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-customeradmin-miami",
+    "relation": "members",
+    "subject_set": {
+      "namespace": "User",
+      "object": "carol"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-customeradmin-miami",
+    "relation": "roles",
+    "subject_set": {
+      "namespace": "Role",
+      "object": "R9"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-prep-jones",
+    "relation": "Work_Correspondence_ModifyLettersForDocument_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-carol-prep-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-prep-jones",
+    "relation": "Work_Preparation_AddNewCustomerWithDocument_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-carol-prep-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-prep-jones",
+    "relation": "Work_Preparation_Documents_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-carol-prep-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-prep-jones",
+    "relation": "Work_Preparation_Documents_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-carol-prep-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-prep-jones",
+    "relation": "Work_Preparation_Documents_List",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-carol-prep-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-prep-jones",
+    "relation": "Work_Preparation_Documents_View",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-carol-prep-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-prep-jones",
+    "relation": "Work_Preparation_RecoverDocuments_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-carol-prep-jones",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-prep-jones",
+    "relation": "members",
+    "subject_set": {
+      "namespace": "User",
+      "object": "carol"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-carol-prep-jones",
+    "relation": "roles",
+    "subject_set": {
+      "namespace": "Role",
+      "object": "R2"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-dan-outsource",
+    "relation": "Work_Correspondence_ModifyLettersForDocument_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-dan-outsource",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-dan-outsource",
+    "relation": "Work_Preparation_AddNewCustomerWithDocument_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-dan-outsource",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-dan-outsource",
+    "relation": "Work_Preparation_Documents_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-dan-outsource",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-dan-outsource",
+    "relation": "Work_Preparation_Documents_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-dan-outsource",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-dan-outsource",
+    "relation": "Work_Preparation_Documents_List",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-dan-outsource",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-dan-outsource",
+    "relation": "Work_Preparation_Documents_View",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-dan-outsource",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-dan-outsource",
+    "relation": "Work_Preparation_RecoverDocuments_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-dan-outsource",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-dan-outsource",
+    "relation": "members",
+    "subject_set": {
+      "namespace": "User",
+      "object": "dan"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-dan-outsource",
+    "relation": "roles",
+    "subject_set": {
+      "namespace": "Role",
+      "object": "R2"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-erin-submit",
+    "relation": "Work_Submission_AccessSubmissionStatus_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-erin-submit",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-erin-submit",
+    "relation": "Work_Submission_AccessSubmissionStatus_ExportedDocuments_View",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-erin-submit",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-erin-submit",
+    "relation": "Work_Submission_ReleaseDocumentsToRecipient_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-erin-submit",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-erin-submit",
+    "relation": "members",
+    "subject_set": {
+      "namespace": "User",
+      "object": "erin"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-erin-submit",
+    "relation": "roles",
+    "subject_set": {
+      "namespace": "Role",
+      "object": "R10"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "CRM_CustomerManager_CustomerProfile_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-miami-preparers",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "CRM_CustomerManager_CustomerProfile_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-miami-preparers",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "CRM_CustomerManager_CustomerProfile_View",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-miami-preparers",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "Work_Correspondence_ModifyLettersForDocument_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-miami-preparers",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "Work_Preparation_AddNewCustomerWithDocument_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-miami-preparers",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "Work_Preparation_Documents_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-miami-preparers",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "Work_Preparation_Documents_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-miami-preparers",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "Work_Preparation_Documents_List",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-miami-preparers",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "Work_Preparation_Documents_View",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-miami-preparers",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "Work_Preparation_RecoverDocuments_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-miami-preparers",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "members",
+    "subject_set": {
+      "namespace": "Group",
+      "object": "acme-miami-preparers",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "roles",
+    "subject_set": {
+      "namespace": "Role",
+      "object": "R2"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-miami-preparers",
+    "relation": "roles",
+    "subject_set": {
+      "namespace": "Role",
+      "object": "R9"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "CRM_CustomerManager_CustomerProfile_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "CRM_CustomerManager_CustomerProfile_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "CRM_CustomerManager_CustomerProfile_View",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "Work_Correspondence_ModifyLettersForDocument_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "Work_Preparation_AddNewCustomerWithDocument_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "Work_Preparation_Documents_Add",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "Work_Preparation_Documents_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "Work_Preparation_Documents_List",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "Work_Preparation_Documents_View",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "Work_Preparation_RecoverDocuments_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "Work_Submission_AccessSubmissionStatus_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "Work_Submission_AccessSubmissionStatus_ExportedDocuments_View",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "Work_Submission_ReleaseDocumentsToRecipient_Edit",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner",
+      "relation": "members"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "members",
+    "subject_set": {
+      "namespace": "User",
+      "object": "owner"
+    }
+  },
+  {
+    "namespace": "Grant",
+    "object": "acme-owner",
+    "relation": "roles",
+    "subject_set": {
+      "namespace": "Role",
+      "object": "R1"
+    }
+  },
+  {
+    "namespace": "Group",
+    "object": "acme-miami-preparers",
+    "relation": "members",
+    "subject_set": {
+      "namespace": "User",
+      "object": "alice"
+    }
+  },
+  {
+    "namespace": "Org",
+    "object": "acme",
+    "relation": "grants",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-erin-submit"
+    }
+  },
+  {
+    "namespace": "Org",
+    "object": "acme",
+    "relation": "grants",
+    "subject_set": {
+      "namespace": "Grant",
+      "object": "acme-owner"
+    }
+  }
+]

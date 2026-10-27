@@ -1,0 +1,65 @@
+{
+  "_comment": "Resource hierarchy, permission catalog and policy (role) templates. Permission ids are the legacy Platform ids. 'on' is the lowest scope the permission is checked against; it is also checkable on every ancestor scope (a grant on Branch covers every Document below it).",
+  "scopes": [
+    { "name": "Org", "parents": [] },
+    { "name": "Branch", "parents": ["Org"] },
+    { "name": "CustomerGroup", "parents": ["Org", "Branch"] },
+    { "name": "Customer", "parents": ["Branch", "CustomerGroup"] },
+    { "name": "Document", "parents": ["Customer"] }
+  ],
+  "permissions": [
+    { "id": "Work.Preparation.Documents.View", "on": "Document" },
+    { "id": "Work.Preparation.Documents.Edit", "on": "Document" },
+    { "id": "Work.Correspondence.ModifyLettersForDocument.Edit", "on": "Document" },
+    { "id": "Work.Preparation.RecoverDocuments.Edit", "on": "Document" },
+    { "id": "Work.Preparation.Documents.Add", "on": "Customer" },
+    { "id": "Work.Preparation.Documents.List", "on": "Customer", "proposed": true },
+    { "id": "Work.Preparation.AddNewCustomerWithDocument.Add", "on": "Branch" },
+
+    { "id": "CRM.CustomerManager.CustomerProfile.View", "on": "Customer" },
+    { "id": "CRM.CustomerManager.CustomerProfile.Edit", "on": "Customer" },
+    { "id": "CRM.CustomerManager.CustomerProfile.Add", "on": "Branch" },
+
+    { "id": "Work.Submission.AccessSubmissionStatus.Edit", "on": "Org" },
+    { "id": "Work.Submission.AccessSubmissionStatus.ExportedDocuments.View", "on": "Document" },
+    { "id": "Work.Submission.ReleaseDocumentsToRecipient.Edit", "on": "Document" }
+  ],
+  "roles": [
+    {
+      "id": "R2",
+      "name": "Document Preparers",
+      "permissions": [
+        "Work.Preparation.Documents.View",
+        "Work.Preparation.Documents.Edit",
+        "Work.Preparation.Documents.Add",
+        "Work.Preparation.Documents.List",
+        "Work.Correspondence.ModifyLettersForDocument.Edit",
+        "Work.Preparation.RecoverDocuments.Edit",
+        "Work.Preparation.AddNewCustomerWithDocument.Add"
+      ]
+    },
+    {
+      "id": "R9",
+      "name": "Customer Administration",
+      "permissions": [
+        "CRM.CustomerManager.CustomerProfile.View",
+        "CRM.CustomerManager.CustomerProfile.Edit",
+        "CRM.CustomerManager.CustomerProfile.Add"
+      ]
+    },
+    {
+      "id": "R10",
+      "name": "Submission",
+      "permissions": [
+        "Work.Submission.AccessSubmissionStatus.Edit",
+        "Work.Submission.AccessSubmissionStatus.ExportedDocuments.View",
+        "Work.Submission.ReleaseDocumentsToRecipient.Edit"
+      ]
+    },
+    {
+      "id": "R1",
+      "name": "Full Rights",
+      "includes": ["R2", "R9", "R10"]
+    }
+  ]
+}
