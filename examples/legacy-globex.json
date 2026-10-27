@@ -1,0 +1,50 @@
+{
+  "_comment": "SYNTHETIC second org. Checks that acme and globex cannot reach each other's resources. Its R2 is an edited copy of the template (no Documents.Add), so it must migrate as a custom role.",
+  "tenant": "globex",
+  "org": "globex",
+  "users": [
+    "gus"
+  ],
+  "groups": [],
+  "customers": [
+    {
+      "id": "globex-kim"
+    }
+  ],
+  "projects": [
+    {
+      "id": "globex-kim-2025",
+      "customer": "globex-kim"
+    }
+  ],
+  "customer_groups": [],
+  "roles": [
+    {
+      "id": "R2",
+      "name": "Document Preparers",
+      "kind": "standard",
+      "permissions": [
+        "Work.Preparation.Documents.View",
+        "Work.Preparation.Documents.Edit",
+        "Work.Preparation.Documents.List",
+        "CRM.CustomerManager.CustomerProfile.View"
+      ]
+    }
+  ],
+  "assignments": [
+    {
+      "id": "gus-prep",
+      "subjects": [
+        {
+          "user": "gus"
+        }
+      ],
+      "roles": [
+        "R2"
+      ],
+      "scope": {
+        "type": "Org"
+      }
+    }
+  ]
+}

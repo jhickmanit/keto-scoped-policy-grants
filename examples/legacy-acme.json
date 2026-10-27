@@ -1,0 +1,64 @@
+{
+  "_comment": "SYNTHETIC legacy export for one org. The shape is a proposal for what a legacy export must contain; it is not a real system's format. Role names follow the R-codes in the policy reference guide.",
+  "tenant": "acme",
+  "org": "acme",
+  "users": ["owner", "alice", "bob", "carol", "dan", "erin", "frank"],
+  "groups": [
+    { "id": "org-admins", "members": ["owner"] },
+    { "id": "miami-preparers", "members": ["alice"] },
+    { "id": "miami-staff", "members": ["carol"], "member_groups": ["miami-preparers"] }
+  ],
+  "customers": [
+    { "id": "acme-smith" },
+    { "id": "acme-jones" },
+    { "id": "acme-brown" },
+    { "id": "acme-lee" }
+  ],
+  "projects": [
+    { "id": "acme-smith-2025", "customer": "acme-smith" },
+    { "id": "acme-jones-2025", "customer": "acme-jones" },
+    { "id": "acme-brown-2025", "customer": "acme-brown" },
+    { "id": "acme-lee-2025", "customer": "acme-lee" }
+  ],
+  "customer_groups": [
+    { "id": "miami-customers", "include": ["acme-smith", "acme-brown", "acme-lee"], "exclude": ["acme-lee"] },
+    { "id": "all-but-employee-returns", "include_all": true, "exclude": ["acme-lee"] },
+    { "id": "outsource-dan", "include": ["acme-smith"] }
+  ],
+  "roles": [
+    { "id": "R1", "name": "Full Rights", "kind": "standard", "includes": ["R2", "R9", "R10", "R12"] },
+    { "id": "R2", "name": "Document Preparers", "kind": "standard", "permissions": [
+      "Work.Preparation.Documents.View", "Work.Preparation.Documents.Edit",
+      "Work.Preparation.Documents.Add", "Work.Preparation.Documents.List",
+      "CRM.CustomerManager.CustomerProfile.View"
+    ] },
+    { "id": "R9", "name": "Customer Administration", "kind": "standard", "permissions": [
+      "CRM.CustomerManager.CustomerProfile.View", "CRM.CustomerManager.CustomerProfile.Edit",
+      "CRM.CustomerManager.CustomerProfile.Delete"
+    ] },
+    { "id": "R10", "name": "Submission", "kind": "standard", "permissions": [
+      "Work.Submission.ReleaseDocumentsToRecipient.Edit", "Work.Preparation.Documents.View"
+    ] },
+    { "id": "R12", "name": "Org Administration", "kind": "standard", "permissions": [
+      "Org.Administration.Admin", "Org.Security.ManagePermissions", "Org.Settings.View"
+    ] },
+    { "id": "ACME-REVIEWER", "name": "Reviewer (org-defined)", "kind": "custom", "permissions": [
+      "Work.Preparation.Documents.View", "CRM.CustomerManager.CustomerProfile.View", "Org.Settings.View"
+    ] },
+    { "id": "T1", "name": "Emergency / Temporary Submission", "kind": "temporary", "permissions": [
+      "Work.Submission.ReleaseDocumentsToRecipient.Edit"
+    ] },
+    { "id": "IMPORT", "name": "Data import group", "kind": "artifact", "includes": ["R1"] }
+  ],
+  "assignments": [
+    { "id": "owner-full", "subjects": [{ "group": "org-admins" }], "roles": ["R1"], "scope": { "type": "Org" } },
+    { "id": "miami-prep", "subjects": [{ "group": "miami-staff" }], "roles": ["R2"], "scope": { "type": "CustomerGroup", "id": "miami-customers" } },
+    { "id": "bob-jones", "subjects": [{ "user": "bob" }], "roles": ["R2", "R9"], "scope": { "type": "Customer", "id": "acme-jones" } },
+    { "id": "dan-outsource", "subjects": [{ "user": "dan" }], "roles": ["R2"], "scope": { "type": "CustomerGroup", "id": "outsource-dan" } },
+    { "id": "dan-brown", "subjects": [{ "user": "dan" }], "roles": ["R2"], "scope": { "type": "Customer", "id": "acme-brown" } },
+    { "id": "carol-customeradmin", "subjects": [{ "user": "carol" }], "roles": ["R9"], "scope": { "type": "Customer", "id": "acme-jones" } },
+    { "id": "erin-reviewer", "subjects": [{ "user": "erin" }], "roles": ["ACME-REVIEWER"], "scope": { "type": "CustomerGroup", "id": "all-but-employee-returns" } },
+    { "id": "frank-emergency", "subjects": [{ "user": "frank" }], "roles": ["T1"], "scope": { "type": "Org" } },
+    { "id": "import-leftover", "subjects": [{ "group": "miami-preparers" }], "roles": ["IMPORT"], "scope": { "type": "Org" } }
+  ]
+}

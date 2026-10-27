@@ -20,8 +20,17 @@ jobs:
           go-version: '1.23.x'
           cache: false
       - name: Check Go and shell code
+        working-directory: legacy
         run: make check
       - name: Verify generated files are current
+        working-directory: legacy
         run: |
           make generate
           git diff --exit-code -- setup-a-grants/ setup-b-direct/
+      - name: Verify hybrid OPLs are current
+        run: |
+          python3 -I tools/add_standard_roles.py examples/mapping.json opl/base.ts >opl/hybrid.ts
+          python3 -I tools/add_standard_roles.py examples/mapping-decoded.json opl/base-decoded.ts >opl/hybrid-decoded.ts
+          git diff --exit-code -- opl/
+      - name: Check shell syntax
+        run: bash -n test/run.sh test/all.sh

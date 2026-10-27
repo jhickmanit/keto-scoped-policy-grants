@@ -1,0 +1,123 @@
+{
+  "mapping": {
+    "_comment": "Same profile as mapping.json, for the decoded copy of the base OPL (opl/base-decoded.ts) (aliases instead of GUIDs). Legacy names and standard-role permission lists are SYNTHETIC placeholders.",
+    "role_instance_mode": "per_assignment",
+    "role_namespace": "Platform_role",
+    "holder_namespace": "User_Group",
+    "holder_relation": "User_Group",
+    "group_namespaces": {
+      "Org": "Org_Group",
+      "Customer": "Customer_Group",
+      "Project": "Project_Group"
+    },
+    "admin": {
+      "namespace": "Org",
+      "relation": "Admin"
+    },
+    "permissions": {
+      "Org.Administration.Admin": {
+        "namespace": "Org",
+        "relation": "Admin"
+      },
+      "Org.Security.ManagePermissions": {
+        "namespace": "Org",
+        "relation": "ManagePermissions"
+      },
+      "Org.Settings.View": {
+        "namespace": "Org",
+        "relation": "View"
+      },
+      "CRM.CustomerManager.CustomerProfile.View": {
+        "namespace": "Customer",
+        "relation": "View"
+      },
+      "CRM.CustomerManager.CustomerProfile.Edit": {
+        "namespace": "Customer",
+        "relation": "Edit"
+      },
+      "CRM.CustomerManager.CustomerProfile.Delete": {
+        "namespace": "Customer",
+        "relation": "Delete"
+      },
+      "Work.Preparation.Documents.Add": {
+        "namespace": "Customer",
+        "relation": "CreateProject"
+      },
+      "Work.Preparation.Documents.List": {
+        "namespace": "Customer",
+        "relation": "ListProject"
+      },
+      "Work.Preparation.Documents.View": {
+        "namespace": "Project",
+        "relation": "View"
+      },
+      "Work.Preparation.Documents.Edit": {
+        "namespace": "Project",
+        "relation": "Edit"
+      },
+      "Work.Preparation.Documents.Delete": {
+        "namespace": "Project",
+        "relation": "Delete"
+      }
+    },
+    "ignored": {
+      "Work.Submission.ReleaseDocumentsToRecipient.Edit": "The base OPL has no submission resource or permission. Synthetic decision for this example; the platform owner must decide."
+    },
+    "standard_roles": {
+      "R1": {
+        "name": "Full Rights",
+        "relation": "R1",
+        "permissions": [
+          "Work.Preparation.Documents.View",
+          "Work.Preparation.Documents.Edit",
+          "Work.Preparation.Documents.Add",
+          "Work.Preparation.Documents.List",
+          "CRM.CustomerManager.CustomerProfile.View",
+          "CRM.CustomerManager.CustomerProfile.Edit",
+          "CRM.CustomerManager.CustomerProfile.Delete",
+          "Work.Submission.ReleaseDocumentsToRecipient.Edit",
+          "Org.Administration.Admin",
+          "Org.Security.ManagePermissions",
+          "Org.Settings.View"
+        ]
+      },
+      "R2": {
+        "name": "Document Preparers",
+        "relation": "R2",
+        "permissions": [
+          "Work.Preparation.Documents.View",
+          "Work.Preparation.Documents.Edit",
+          "Work.Preparation.Documents.Add",
+          "Work.Preparation.Documents.List",
+          "CRM.CustomerManager.CustomerProfile.View"
+        ]
+      },
+      "R9": {
+        "name": "Customer Administration",
+        "relation": "R9",
+        "permissions": [
+          "CRM.CustomerManager.CustomerProfile.View",
+          "CRM.CustomerManager.CustomerProfile.Edit",
+          "CRM.CustomerManager.CustomerProfile.Delete"
+        ]
+      },
+      "R10": {
+        "name": "Submission",
+        "relation": "R10",
+        "permissions": [
+          "Work.Submission.ReleaseDocumentsToRecipient.Edit",
+          "Work.Preparation.Documents.View"
+        ]
+      },
+      "R12": {
+        "name": "Org Administration",
+        "relation": "R12",
+        "permissions": [
+          "Org.Administration.Admin",
+          "Org.Security.ManagePermissions",
+          "Org.Settings.View"
+        ]
+      }
+    }
+  }
+}
